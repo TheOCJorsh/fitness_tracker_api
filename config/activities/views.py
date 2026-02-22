@@ -3,9 +3,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-from .models import Activity
-from .serializers import ActivitySerializer
-
+from .models import Activity, Milestone
+from .serializers import ActivitySerializer, MilestoneSerializer
+from .utils import check_and_create_milestones
 
 class ActivityListCreateView(generics.ListCreateAPIView):
     serializer_class = ActivitySerializer
@@ -15,7 +15,8 @@ class ActivityListCreateView(generics.ListCreateAPIView):
         return Activity.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        activity = serializer.save(user=self.request.user)
+        check_and_create_milestones(self.request.user)
 
 
 class ActivityDetailView(generics.RetrieveUpdateDestroyAPIView):
@@ -24,6 +25,18 @@ class ActivityDetailView(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return Activity.objects.filter(user=self.request.user)
+
+
+class MilestoneListView(generics.ListAPIView):
+    serializer_class = MilestoneSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Milestone.objects.filter(user=self.request.user)
+    
+
+
+
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
