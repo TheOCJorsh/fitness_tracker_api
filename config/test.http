@@ -19,20 +19,20 @@ Content-Type: application/json
 
 
 ### Get Activity List
-GET http://127.0.0.1:8000/api/activities/
+GET http://127.0.0.1:8000/api/127.0.0.1:8000/api/milestones//
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcxNzU4NzE2LCJpYXQiOjE3NzE3NTUxMTYsImp0aSI6IjBlNzI3ZDQ2MTY2YTQ0ZDM5MTI5ZGM3MmZiMGM3ZmQ0IiwidXNlcl9pZCI6IjEifQ.5Dp_WNJpjgDoz3arOHPC1YzBHM90E-w1Cf1Kaz_Yv0A
 Content-Type: application/json
 
 
 ### Create Activity
 POST http://127.0.0.1:8000/api/activities/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcxNzU0MTEwLCJpYXQiOjE3NzE3NTM4MTAsImp0aSI6ImNmMzM2MWI2ZmU4ODQ2ZmU5ZjEyZDliZDZlMTYzODhiIiwidXNlcl9pZCI6IjEifQ.1Mfc3rU4A_-jsWg59_FbN4wHVjrHwhu_1S9IH113ILM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcxNzU4NzE2LCJpYXQiOjE3NzE3NTUxMTYsImp0aSI6IjBlNzI3ZDQ2MTY2YTQ0ZDM5MTI5ZGM3MmZiMGM3ZmQ0IiwidXNlcl9pZCI6IjEifQ.5Dp_WNJpjgDoz3arOHPC1YzBHM90E-w1Cf1Kaz_Yv0A
 Content-Type: application/json
 
 {
   "activity_type": "run",
-  "duration_minutes": 30,
-  "distance_km": 5,
-  "calories_burned": 250,
+  "duration_minutes": 35,
+  "distance_km": 100,
+  "calories_burned": 50,
   "activity_date": "2026-02-10"
 }
