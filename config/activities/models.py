@@ -50,3 +50,35 @@ class Activity(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.activity_type}"
+
+
+class Milestone(models.Model):
+
+    MILESTONE_TYPES = [
+        ('activity_count', 'Activity Count'),
+        ('distance_total', 'Total Distance'),
+        ('calories_total', 'Total Calories'),
+        ('streak', 'Activity Streak'),
+    ]
+
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='milestones'
+    )
+
+    milestone_type = models.CharField(
+        max_length=30,
+        choices=MILESTONE_TYPES
+    )
+
+    value = models.IntegerField()
+
+    achieved_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('user', 'milestone_type', 'value')
+        ordering = ['-achieved_at']
+
+    def __str__(self):
+        return f"{self.user.username} - {self.milestone_type} - {self.value}"
