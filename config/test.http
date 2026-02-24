@@ -31,8 +31,8 @@ Content-Type: application/json
 
 {
   "activity_type": "run",
-  "duration_minutes": 60,
-  "distance_km": 120,
-  "calories_burned": 150,
-  "activity_date": "2026-02-22"
+  "duration_minutes": 100,
+  "distance_km": 150,
+  "calories_burned": 200,
+  "activity_date": "2026-02-24"
 }

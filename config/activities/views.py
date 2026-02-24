@@ -5,7 +5,7 @@ from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from .models import Activity, Milestone
 from .serializers import ActivitySerializer, MilestoneSerializer
-from .utils import check_and_create_milestones
+
 
 class ActivityListCreateView(generics.ListCreateAPIView):
     serializer_class = ActivitySerializer
@@ -16,8 +16,7 @@ class ActivityListCreateView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         activity = serializer.save(user=self.request.user)
-        check_and_create_milestones(self.request.user)
-
+        
 
 class ActivityDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ActivitySerializer
