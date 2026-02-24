@@ -1,6 +1,33 @@
 from django.db.models import Sum
 from .models import Activity, Milestone
+from datetime import timedelta
 
+
+def calculate_streak(user):
+
+    activities = (
+        Activity.objects
+        .filter(user=user)
+        .order_by('-activity_date')
+        .values_list('activity_date', flat=True)
+        .distinct()
+    )
+
+    if not activities:
+        return 0
+
+    streak = 1
+    previous_date = activities[0]
+
+    for current_date in activities[1:]:
+
+        if previous_date - current_date == timedelta(days=1):
+            streak += 1
+            previous_date = current_date
+        else:
+            break
+
+    return streak
 
 def check_and_create_milestones(user):
 
@@ -16,6 +43,19 @@ def check_and_create_milestones(user):
                 milestone_type='activity_count',
                 value=target
             )
+    #  Streak Milestones
+    streak = calculate_streak(user)
+
+    streak_targets = [3, 7, 14]
+
+    for target in streak_targets:
+        if streak >= target:
+            Milestone.objects.get_or_create(
+                user=user,
+                milestone_type='streak',
+                value=target
+            )
+
 
     # 2️⃣ Total Distance Milestones
     total_distance = Activity.objects.filter(user=user).aggregate(
