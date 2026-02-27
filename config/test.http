@@ -65,3 +65,7 @@ Content-Type: application/json
 GET http://127.0.0.1:8000/api/community/posts/
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjA5OTEzLCJpYXQiOjE3NzIyMDYzMTMsImp0aSI6ImQxZmQ5NGE0ZmYxMjQ4N2Y5MDIyMTY5NjlkYjU5ODU2IiwidXNlcl9pZCI6IjEifQ.u2z3RsARA6noowYf2bruOMkeadAEVtOH0LZKmlqIlSs
 Content-Type: application/json
+
+### Users Workout Insights
+GET http://127.0.0.1:8000/api/ai/workout-insights/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjA5OTEzLCJpYXQiOjE3NzIyMDYzMTMsImp0aSI6ImQxZmQ5NGE0ZmYxMjQ4N2Y5MDIyMTY5NjlkYjU5ODU2IiwidXNlcl9pZCI6IjEifQ.u2z3RsARA6noowYf2bruOMkeadAEVtOH0LZKmlqIlSs
