@@ -7,7 +7,6 @@ Content-Type: application/json
   "password": "FitAdmin2026"
 }
 
-###
 ### Refresh Token
 POST http://127.0.0.1:8000/api/token/refresh/
 Content-Type: application/json
@@ -43,3 +42,26 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiY
 ### Get Activity by Date Range
 GET http://127.0.0.1:8000/api/activities/analytics/?start_date=2026-02-20&end_date=2026-02-27
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjA5OTEzLCJpYXQiOjE3NzIyMDYzMTMsImp0aSI6ImQxZmQ5NGE0ZmYxMjQ4N2Y5MDIyMTY5NjlkYjU5ODU2IiwidXNlcl9pZCI6IjEifQ.u2z3RsARA6noowYf2bruOMkeadAEVtOH0LZKmlqIlSs
+
+### Make Community Posts
+POST http://127.0.0.1:8000/api/community/posts/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjA5OTEzLCJpYXQiOjE3NzIyMDYzMTMsImp0aSI6ImQxZmQ5NGE0ZmYxMjQ4N2Y5MDIyMTY5NjlkYjU5ODU2IiwidXNlcl9pZCI6IjEifQ.u2z3RsARA6noowYf2bruOMkeadAEVtOH0LZKmlqIlSs
+Content-Type: application/json
+
+{
+  "content": "I Just completed a 6 day streak!"
+}
+
+### Comment on a Post
+POST http://127.0.0.1:8000/api/community/posts/1/comment/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjA5OTEzLCJpYXQiOjE3NzIyMDYzMTMsImp0aSI6ImQxZmQ5NGE0ZmYxMjQ4N2Y5MDIyMTY5NjlkYjU5ODU2IiwidXNlcl9pZCI6IjEifQ.u2z3RsARA6noowYf2bruOMkeadAEVtOH0LZKmlqIlSs
+Content-Type: application/json
+
+{
+  "content": "What an amazing work!"
+}
+
+### Get Community Posts
+GET http://127.0.0.1:8000/api/community/posts/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjA5OTEzLCJpYXQiOjE3NzIyMDYzMTMsImp0aSI6ImQxZmQ5NGE0ZmYxMjQ4N2Y5MDIyMTY5NjlkYjU5ODU2IiwidXNlcl9pZCI6IjEifQ.u2z3RsARA6noowYf2bruOMkeadAEVtOH0LZKmlqIlSs
+Content-Type: application/json
