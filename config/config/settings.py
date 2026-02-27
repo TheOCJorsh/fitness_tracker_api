@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'users',
     'activities.apps.ActivitiesConfig',
-    'community',
+    'community.apps.CommunityConfig',
 ]
 
 MIDDLEWARE = [
