@@ -8,7 +8,6 @@ Content-Type: application/json
 }
 
 ###
-
 ### Refresh Token
 POST http://127.0.0.1:8000/api/token/refresh/
 Content-Type: application/json
@@ -19,14 +18,14 @@ Content-Type: application/json
 
 
 ### Get Activity List
-GET http://127.0.0.1:8000/api/milestones/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcxOTY3NDc4LCJpYXQiOjE3NzE5NjM4NzgsImp0aSI6IjllYTBmOTgyZmZmNDQzNzZiNTJjODNiYjM0ZTU3NTk3IiwidXNlcl9pZCI6IjEifQ.BkpvYbvVL6VLVbZNCtycbk3beUYbwOlBOthXQsvLRzo
+GET http://127.0.0.1:8000/api/activities/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjA5OTEzLCJpYXQiOjE3NzIyMDYzMTMsImp0aSI6ImQxZmQ5NGE0ZmYxMjQ4N2Y5MDIyMTY5NjlkYjU5ODU2IiwidXNlcl9pZCI6IjEifQ.u2z3RsARA6noowYf2bruOMkeadAEVtOH0LZKmlqIlSs
 Content-Type: application/json
 
 
 ### Create Activity
 POST http://127.0.0.1:8000/api/activities/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcxOTY3NDc4LCJpYXQiOjE3NzE5NjM4NzgsImp0aSI6IjllYTBmOTgyZmZmNDQzNzZiNTJjODNiYjM0ZTU3NTk3IiwidXNlcl9pZCI6IjEifQ.BkpvYbvVL6VLVbZNCtycbk3beUYbwOlBOthXQsvLRzo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjA5OTEzLCJpYXQiOjE3NzIyMDYzMTMsImp0aSI6ImQxZmQ5NGE0ZmYxMjQ4N2Y5MDIyMTY5NjlkYjU5ODU2IiwidXNlcl9pZCI6IjEifQ.u2z3RsARA6noowYf2bruOMkeadAEVtOH0LZKmlqIlSs
 Content-Type: application/json
 
 {
@@ -36,3 +35,11 @@ Content-Type: application/json
   "calories_burned": 200,
   "activity_date": "2026-02-24"
 }
+
+### Get Activity Duration & Analytics
+GET http://127.0.0.1:8000/api/activities/analytics/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjA5OTEzLCJpYXQiOjE3NzIyMDYzMTMsImp0aSI6ImQxZmQ5NGE0ZmYxMjQ4N2Y5MDIyMTY5NjlkYjU5ODU2IiwidXNlcl9pZCI6IjEifQ.u2z3RsARA6noowYf2bruOMkeadAEVtOH0LZKmlqIlSs
+
+### Get Activity by Date Range
+GET http://127.0.0.1:8000/api/activities/analytics/?start_date=2026-02-20&end_date=2026-02-27
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjA5OTEzLCJpYXQiOjE3NzIyMDYzMTMsImp0aSI6ImQxZmQ5NGE0ZmYxMjQ4N2Y5MDIyMTY5NjlkYjU5ODU2IiwidXNlcl9pZCI6IjEifQ.u2z3RsARA6noowYf2bruOMkeadAEVtOH0LZKmlqIlSs
