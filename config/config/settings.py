@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'users',
     'activities.apps.ActivitiesConfig',
     'community.apps.CommunityConfig',
+    'ai.apps.AiConfig',
 ]
 
 MIDDLEWARE = [
