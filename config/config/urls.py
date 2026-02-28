@@ -22,10 +22,12 @@ from rest_framework_simplejwt.views import (
 from .views import home, dashboard
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('dashboard/', dashboard, name='dashboard'),
-    path('accounts/', include('django.contrib.auth.urls')),
+    
+    path('admin/', admin.site.urls),
+
+    path('', include('django.contrib.auth.urls')),
 
     ## JWT authentication endpoints
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
