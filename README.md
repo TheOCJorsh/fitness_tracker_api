@@ -76,7 +76,81 @@ JWT authentication is required for each route.
 
 ---
 
-## Week 2 — Activity System Setup [ Coming soon]
+## 🚀Week 2 — Activity System Setup.
 ## Activity model (for milestone) - CRUD APIs - Users Permissions - Test run.
+Here is what was accomplished in this week.
+
+## Implemented the Activity model with fields.
+
+activity_type | duration_minutes | distance_km | calories_burned
+activity_date | notes | created_at | user (ForeignKey relationship)
+
+## CRUD API endpoints set up for users activities.
+
+Create activity | View activities | Update activity | Delete activity
+
+## JWT Authentication using SimpleJWT
+
+User login endpoint (/api/token/)
+Token refresh endpoint (/api/token/refresh/)
+Secured endpoints with authentication permissions
+
+## Testing
+Successfully tested all endpoints using REST Client inside VS CODE
+
+## Clean Repo Update
+Pushed progress to GitHub Repository
+
+## Challenges and solutions
+
+Challenge: Token authentication errors (expired or invalid token)
+
+Solution:
+- Adjusted token refresh endpoint up to 1 hour
+- Properly configured authentication headers:
+  Authorization: Bearer <access_token>
+
+## 🚀Week 3 — Milestone System and Community setup
+Exciting features were implemented this week.
+
+## Milestone filtering
+Milestone filter for users activities was implemented using date:
+
+Daily milestones | Weekly milestones | Monthly milestones
+
+Using the in-built Django ORM date filtering for efficient queries
+
+## Users activity streak system
+
+Implemented streak calculation endpoint:
+
+GET /api/activities/streak/
+
+This calculates consecutive active days per user
+
+## Community feature implementation
+
+Created new models for users activities such as:
+Post model | Comment model | Like model
+
+## Established proper relationships between.
+
+- User → Post
+- Post → Comment
+- Post → Like
+
+## Implemented endpoints for:
+
+Creating community posts | Viewing posts | Liking posts | Commenting on posts | Viewing post engagements
+
+## Multiple user setup for community testing.
+
+Created multiple users:
+FitAdmin | mike24 | maryqueen | martins
+
+Successfully tested:
+- Cross-user likes
+- Cross-user comments
+- Community engagement system
 
 
