@@ -105,7 +105,7 @@ Pushed progress to GitHub Repository
 
 Challenge: Token authentication errors (expired or invalid token)
 
-Solution:
+## Solution:
 - Adjusted token refresh endpoint up to 1 hour
 - Properly configured authentication headers:
   Authorization: Bearer <access_token>
@@ -153,4 +153,46 @@ Successfully tested:
 - Cross-user comments
 - Community engagement system
 
+## Challenges
+issue logging other users in for testing communtiy features via the web http://127.0.0.1:8000/login
 
+## Solution:
+i created the path for login in my urls.py and updated settings.py to redirect,
+but eventually i used the REST CLIENT to execute all user testing.
+
+## 🚀Week 4 – Activity & Milestone Pagination, AI Insight Endpoint Implementation
+-  AI insight Generation - Pagination.
+
+## MilestonePost Analytics
+Implemented a user activity analytics either by date or the entire period.
+
+## Pagination
+Implemented pagination for activity and community endpoints.
+(This is to prevented large dataset overload)
+
+## AI Workout Insight Generator
+Created AI endpoint:
+GET /api/ai/insight/
+
+The aim of this endpoint is to:
+- Analyzes user activity history
+- Provides intelligent feedback
+- Suggests improvements and recommendations (upon poor performance)
+
+## API structure finalization
+Here are my final API modules:
+
+- users app → Authentication
+- activities app → Activity tracking
+- community app → Posts, likes, comments
+- ai app → Insight generation
+
+## Full system testing completed
+Now i have functionality of the following features:
+
+Authentication | Activity CRUD | Milestones filtering
+Streak calculation | Community posting | Likes and comments
+Pagination | AI insights.
+
+## PS 
+All testing were successfully carried out using REST Client.
