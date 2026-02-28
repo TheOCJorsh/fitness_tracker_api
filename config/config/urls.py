@@ -19,12 +19,18 @@ from django.urls import path, include
 from rest_framework_simplejwt.views import (
     TokenObtainPairView, TokenRefreshView,
 )
+from .views import home, dashboard
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('django.contrib.auth.urls')),
+    path('', home, name='home'),
+    path('dashboard/', dashboard, name='dashboard'),
+    path('accounts/', include('django.contrib.auth.urls')),
+
+    ## JWT authentication endpoints
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    ## API routes
     path('api/', include('users.urls')),
     path('api/', include('activities.urls')),
     path('api/community/', include('community.urls')),
