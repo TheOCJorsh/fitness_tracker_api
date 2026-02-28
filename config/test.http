@@ -3,9 +3,18 @@ POST http://127.0.0.1:8000/api/token/
 Content-Type: application/json
 
 {
-  "username": "FitAdmin",
-  "password": "FitAdmin2026"
+  "username": "martins",
+  "password": "mary1234"
 }
+
+### Access Token
+@FitAdminToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjU1NjE4LCJpYXQiOjE3NzIyNTIwMTksImp0aSI6IjY1NzA4MmM2OWU5MzQ5MGM4NTc4NTVjNTUzMjExOWE4IiwidXNlcl9pZCI6IjEifQ.r3s9Eh_kQYnmZtT9msbGPa1rCoQsIj2zYOO4HxKyB9o
+@mikeToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjU1NzUwLCJpYXQiOjE3NzIyNTIxNTAsImp0aSI6ImUxMWE2NmE4NDQyZDQ2MTNiNDMxNzdlYTA2YjMxNDc3IiwidXNlcl9pZCI6IjMifQ.VwNIkI_DN8lHMDuOXOjd_r69pm35wwZjBTwVP1L_xGk
+@maryToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjU1ODM4LCJpYXQiOjE3NzIyNTIyMzgsImp0aSI6ImNhNjhlNjliODI0MTRiNjI5NzM2NGNiYTFkNDBmY2FiIiwidXNlcl9pZCI6IjQifQ.8CQipz0Crv4SRCLyF5iqLYRrL1xoUwQMfuwHj4qHPqg
+@martinsToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjU1ODc3LCJpYXQiOjE3NzIyNTIyNzcsImp0aSI6IjFkNTU2NmFiMTVlMzQwYmNhYzRjODM2NWE1YjUyNGM0IiwidXNlcl9pZCI6IjUifQ.m9Ss4_Y_gc_cxisTQYFAAF-bxvDUJkvMgUCUqoDfOFk
+@activityId = 11
+@postID = 3
+@postID2 = 2
 
 ### Refresh Token
 POST http://127.0.0.1:8000/api/token/refresh/
@@ -15,57 +24,65 @@ Content-Type: application/json
   "refresh": eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc3MTg0MDIxMCwiaWF0IjoxNzcxNzUzODEwLCJqdGkiOiJjM2U0MzY1MTE2MTU0ZTI5OWYzODQ3YzQ4MThhOTA5NyIsInVzZXJfaWQiOiIxIn0.VaXcr-Ls3_7D1pikj2AxXtJ00_vxPqAp0feGddBpLr0
 }
 
-
-### Get Activity List
-GET http://127.0.0.1:8000/api/activities/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjA5OTEzLCJpYXQiOjE3NzIyMDYzMTMsImp0aSI6ImQxZmQ5NGE0ZmYxMjQ4N2Y5MDIyMTY5NjlkYjU5ODU2IiwidXNlcl9pZCI6IjEifQ.u2z3RsARA6noowYf2bruOMkeadAEVtOH0LZKmlqIlSs
-Content-Type: application/json
-
-
 ### Create Activity
 POST http://127.0.0.1:8000/api/activities/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjA5OTEzLCJpYXQiOjE3NzIyMDYzMTMsImp0aSI6ImQxZmQ5NGE0ZmYxMjQ4N2Y5MDIyMTY5NjlkYjU5ODU2IiwidXNlcl9pZCI6IjEifQ.u2z3RsARA6noowYf2bruOMkeadAEVtOH0LZKmlqIlSs
+Authorization: Bearer {{mikeToken}}
 Content-Type: application/json
 
 {
   "activity_type": "run",
-  "duration_minutes": 100,
-  "distance_km": 150,
+  "duration_minutes": 60,
+  "distance_km": 120,
   "calories_burned": 200,
-  "activity_date": "2026-02-24"
+  "activity_date": "2026-02-26",
+  "notes": "improving my endurance."
 }
 
-### Get Activity Duration & Analytics
-GET http://127.0.0.1:8000/api/activities/analytics/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjA5OTEzLCJpYXQiOjE3NzIyMDYzMTMsImp0aSI6ImQxZmQ5NGE0ZmYxMjQ4N2Y5MDIyMTY5NjlkYjU5ODU2IiwidXNlcl9pZCI6IjEifQ.u2z3RsARA6noowYf2bruOMkeadAEVtOH0LZKmlqIlSs
+### Get Activity List
+GET http://127.0.0.1:8000/api/activities/
+Authorization: Bearer {{FitAdminToken}}
+Content-Type: application/json
 
-### Get Activity by Date Range
-GET http://127.0.0.1:8000/api/activities/analytics/?start_date=2026-02-20&end_date=2026-02-27
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjA5OTEzLCJpYXQiOjE3NzIyMDYzMTMsImp0aSI6ImQxZmQ5NGE0ZmYxMjQ4N2Y5MDIyMTY5NjlkYjU5ODU2IiwidXNlcl9pZCI6IjEifQ.u2z3RsARA6noowYf2bruOMkeadAEVtOH0LZKmlqIlSs
 
-### Make Community Posts
+### Share Community Posts
 POST http://127.0.0.1:8000/api/community/posts/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjA5OTEzLCJpYXQiOjE3NzIyMDYzMTMsImp0aSI6ImQxZmQ5NGE0ZmYxMjQ4N2Y5MDIyMTY5NjlkYjU5ODU2IiwidXNlcl9pZCI6IjEifQ.u2z3RsARA6noowYf2bruOMkeadAEVtOH0LZKmlqIlSs
+Authorization: Bearer {{FitAdminToken}}
 Content-Type: application/json
 
 {
-  "content": "I Just completed a 6 day streak!"
+  "activity": {{activityId}},
+  "content": "I completed my first yoga for the week!"
 }
 
-### Comment on a Post
-POST http://127.0.0.1:8000/api/community/posts/1/comment/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjA5OTEzLCJpYXQiOjE3NzIyMDYzMTMsImp0aSI6ImQxZmQ5NGE0ZmYxMjQ4N2Y5MDIyMTY5NjlkYjU5ODU2IiwidXNlcl9pZCI6IjEifQ.u2z3RsARA6noowYf2bruOMkeadAEVtOH0LZKmlqIlSs
+### Users Comment on a Post
+POST http://127.0.0.1:8000/api/community/posts/{{postID}}/comment/
+Authorization: Bearer {{mikeToken}}
 Content-Type: application/json
 
 {
-  "content": "What an amazing work!"
+  "content": "Congratulations to you!"
 }
 
-### Get Community Posts
+### Users likes a post.
+POST http://127.0.0.1:8000/api/community/posts/{{postID}}/like/
+Authorization: Bearer {{maryToken}}
+
+
+### View Community Posts
 GET http://127.0.0.1:8000/api/community/posts/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjA5OTEzLCJpYXQiOjE3NzIyMDYzMTMsImp0aSI6ImQxZmQ5NGE0ZmYxMjQ4N2Y5MDIyMTY5NjlkYjU5ODU2IiwidXNlcl9pZCI6IjEifQ.u2z3RsARA6noowYf2bruOMkeadAEVtOH0LZKmlqIlSs
+Authorization: Bearer {{martinsToken}}
 Content-Type: application/json
 
 ### Users Workout Insights
 GET http://127.0.0.1:8000/api/ai/workout-insights/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjA5OTEzLCJpYXQiOjE3NzIyMDYzMTMsImp0aSI6ImQxZmQ5NGE0ZmYxMjQ4N2Y5MDIyMTY5NjlkYjU5ODU2IiwidXNlcl9pZCI6IjEifQ.u2z3RsARA6noowYf2bruOMkeadAEVtOH0LZKmlqIlSs
+Authorization: Bearer {{FitAdminToken}}
+
+
+## Users Analytics ##
+### Get Activity Duration & Analytics
+GET http://127.0.0.1:8000/api/activities/analytics/
+Authorization: Bearer {{FitAdminToken}}
+
+### Get Activity by Date Range
+GET http://127.0.0.1:8000/api/activities/analytics/?start_date=2026-02-20&end_date=2026-02-26
+Authorization: Bearer {{FitAdminToken}}
