@@ -3,18 +3,18 @@ POST http://127.0.0.1:8000/api/token/
 Content-Type: application/json
 
 {
-  "username": "martins",
+  "username": "maryqueen",
   "password": "mary1234"
 }
 
-### Access Token
-@FitAdminToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjU1NjE4LCJpYXQiOjE3NzIyNTIwMTksImp0aSI6IjY1NzA4MmM2OWU5MzQ5MGM4NTc4NTVjNTUzMjExOWE4IiwidXNlcl9pZCI6IjEifQ.r3s9Eh_kQYnmZtT9msbGPa1rCoQsIj2zYOO4HxKyB9o
-@mikeToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjU1NzUwLCJpYXQiOjE3NzIyNTIxNTAsImp0aSI6ImUxMWE2NmE4NDQyZDQ2MTNiNDMxNzdlYTA2YjMxNDc3IiwidXNlcl9pZCI6IjMifQ.VwNIkI_DN8lHMDuOXOjd_r69pm35wwZjBTwVP1L_xGk
-@maryToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjU1ODM4LCJpYXQiOjE3NzIyNTIyMzgsImp0aSI6ImNhNjhlNjliODI0MTRiNjI5NzM2NGNiYTFkNDBmY2FiIiwidXNlcl9pZCI6IjQifQ.8CQipz0Crv4SRCLyF5iqLYRrL1xoUwQMfuwHj4qHPqg
-@martinsToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMjU1ODc3LCJpYXQiOjE3NzIyNTIyNzcsImp0aSI6IjFkNTU2NmFiMTVlMzQwYmNhYzRjODM2NWE1YjUyNGM0IiwidXNlcl9pZCI6IjUifQ.m9Ss4_Y_gc_cxisTQYFAAF-bxvDUJkvMgUCUqoDfOFk
-@activityId = 11
-@postID = 3
-@postID2 = 2
+### Access Token & IDs
+@FitAdminToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMzg1NTIwLCJpYXQiOjE3NzIzODE5MjAsImp0aSI6ImU3MzgwYTU4NGQyODQxNTI4ZTc4NGRjYzA1NjM4Y2U1IiwidXNlcl9pZCI6IjEifQ.srkcuhXieybycL4pQ4hr-9KBEsjFjunM5ZkYjYznhVo
+@mikeToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMzg1NTcxLCJpYXQiOjE3NzIzODE5NzEsImp0aSI6ImEzNTJlYjBhNDFhNzQ0ZGI4YTBjMTQ5YmRmYjRkMGMwIiwidXNlcl9pZCI6IjMifQ.MVYFZndqEBofmWswVrXhUMULhX9yGjmrHkRi15FH5JY
+@maryToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyMzg1OTgwLCJpYXQiOjE3NzIzODIzODAsImp0aSI6ImI1OTBlNjdjZTdjODRiMTI5NTM5NDFmYmZmYTdlZjJkIiwidXNlcl9pZCI6IjQifQ.1GTLM8Vep-vge6CQ7M47PTxYUK4GyI2idq5wUmAUygs
+@martinsToken = 
+@activityId = 15
+@postID = 6
+@postID2 = 
 
 ### Refresh Token
 POST http://127.0.0.1:8000/api/token/refresh/
@@ -26,16 +26,16 @@ Content-Type: application/json
 
 ### Create Activity
 POST http://127.0.0.1:8000/api/activities/
-Authorization: Bearer {{mikeToken}}
+Authorization: Bearer {{FitAdminToken}}
 Content-Type: application/json
 
 {
   "activity_type": "run",
   "duration_minutes": 60,
-  "distance_km": 120,
-  "calories_burned": 200,
-  "activity_date": "2026-02-26",
-  "notes": "improving my endurance."
+  "distance_km": 100,
+  "calories_burned": 100,
+  "activity_date": "2026-03-01",
+  "notes": "First run of the March month."
 }
 
 ### Get Activity List
@@ -51,26 +51,26 @@ Content-Type: application/json
 
 {
   "activity": {{activityId}},
-  "content": "I completed my first yoga for the week!"
+  "content": "I completed my first run in march!"
 }
 
 ### Users Comment on a Post
 POST http://127.0.0.1:8000/api/community/posts/{{postID}}/comment/
-Authorization: Bearer {{mikeToken}}
+Authorization: Bearer {{maryToken}}
 Content-Type: application/json
 
 {
-  "content": "Congratulations to you!"
+  "content": "Hurray to you!"
 }
 
 ### Users likes a post.
 POST http://127.0.0.1:8000/api/community/posts/{{postID}}/like/
-Authorization: Bearer {{maryToken}}
+Authorization: Bearer {{mikeToken}}
 
 
 ### View Community Posts
 GET http://127.0.0.1:8000/api/community/posts/
-Authorization: Bearer {{martinsToken}}
+Authorization: Bearer {{FitAdminToken}}
 Content-Type: application/json
 
 ### Users Workout Insights
@@ -84,5 +84,5 @@ GET http://127.0.0.1:8000/api/activities/analytics/
 Authorization: Bearer {{FitAdminToken}}
 
 ### Get Activity by Date Range
-GET http://127.0.0.1:8000/api/activities/analytics/?start_date=2026-02-20&end_date=2026-02-26
+GET http://127.0.0.1:8000/api/activities/analytics/?start_date=2026-02-25&end_date=2026-02-28
 Authorization: Bearer {{FitAdminToken}}
